@@ -1,3 +1,40 @@
+def nazat ():
+    global combobox
+    print(combobox.get())
+
+def klass1():
+    global combobox
+    zube()
+    print("вы очистили окно")
+    languages=["воин","лучник","маг"]
+    combobox = ttk.Combobox(values=languages)
+    combobox.grid(column=0,row=0)
+    btn3=Button(window,text="начать",command=nazat)
+    btn3.grid(column=0,row=1)
+
+def crahenie():
+    global lbl1
+    global lbl2
+    global fi
+    global btn1
+    global btn2
+
+    zube()
+    
+    lbl1=Label(window,text="0")
+    lbl1.grid(column=0,row=0,columnspan=20)
+
+    fi=Label(window,text="ты ударил на ")
+    fi.grid(column=0,row=1,columnspan=20)
+
+    lbl2=Label(window,text="ю левель ")
+    lbl2.grid(column=0,row=2,columnspan=20)
+
+    btn1=Button(window,text="кликай",width=10,height=10,command=plastinavzube)
+    btn1.grid(column=0,row=3,columnspan=15)
+
+    btn2=Button(window,text="улучшение",width=10,height=10,command=plastinavzube)
+    btn2.grid(column=21,row=3,columnspan=15)
 
 def be():
     global lov
@@ -94,7 +131,8 @@ import tkinter as tk
 from tkinter import *
 from tkinter import messagebox
 from random import *
-import random as rd  
+import random as rd
+from tkinter import ttk
 
 #хп монстра
 i=5
@@ -132,11 +170,12 @@ main_menu = Menu()
 game_menu =Menu(main_menu,tearoff=0)
 game_menu.add_command(label="сохранить")
 game_menu.add_command(label="загрузить")
-game_menu.add_command(label="сражение",)
+game_menu.add_command(label="сражение",command=crahenie)
 
 people_menu =Menu(main_menu,tearoff=0)
 people_menu.add_command(label="навыки",command=vzube)
 people_menu.add_command(label="броня")
+people_menu.add_command(label="класс",command=klass1)
 
 main_menu.add_cascade(label="игра",menu=game_menu)
 
